@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen  bg-gradient-to-r from-yellow-500">
+<body class=" flex items-center justify-center min-h-screen ">
+    {{-- <body class="bg-[#fcfcfc]"> --}}
+        <div class="circlePosition w-[590px] h-[400px] bg-[#ddea51] rounded-[100%] absolute -z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[200px]">
+            </div>
 @yield('content')
 @if(session()->has('success'))
     <div id="toastr" class="toast toast-top toast-end z-20">

@@ -1,6 +1,6 @@
 @extends('auth.auth')
 @section('content')
-    <div class="lg:w-1/4 w-3/4"> <!-- Lebar 40% halaman -->
+    <div class="lg:w-1/4 w-3/4 card" > <!-- Lebar 40% halaman -->
         <div class="bg-white shadow-lg rounded-lg" style="padding: 20px"> <!-- Border radius dan padding -->
             <h2 class="text-center text-2xl font-bold mb-4">LogIn</h2>
             <form action="{{ route('login') }}" method="post">
@@ -39,7 +39,7 @@
                     <button type="submit" class="btn btn-neutral">Login</button>
                     <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
                        href="{{ route('register') }}">
-                        Register?
+                        Daftar?
                     </a>
                 </div>
             </form>

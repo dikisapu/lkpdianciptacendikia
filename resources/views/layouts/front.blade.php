@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-100 bg-gradient-to-t from-yellow-500">
-<!-- Navbar -->
+<body class=" bg-gray-100 bg-gradient-to-t to-gray-200">
 
+    <div class="circlePosition w-[590px] h-[400px] bg-[#feb71f] rounded-[100%] absolute -z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[300px]">
+        </div>
+    
 <div class="mx-2 lg:mx-20 min-h-screen">
     <div class="navbar bg-base-100 shadow-lg sticky top-5 rounded-box z-10">
         <div class="flex-1">

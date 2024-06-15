@@ -11,7 +11,7 @@
 </head>
 <body class="bg-gray-100">
 
-<div class="circlePosition w-[590px] h-[400px] bg-[#FFDE95] rounded-[100%] absolute -z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[300px]">
+<div class="circlePosition w-[590px] h-[400px] bg-[#ffbd2f] rounded-[100%] absolute -z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[300px]">
     </div>
 
 <div class="blur-[90px] -z-10">
