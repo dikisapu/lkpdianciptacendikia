@@ -31,50 +31,62 @@
                     @enderror
                 </label>
                 <div class="divider">Lampiran</div>
-                <label class="form-control w-full max-w-xs mb-3">
-                    <div class="label">
-                        <span class="label-text">File Foto</span>
-                    </div>
-                    <input type="file" name="foto"
-                           class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>
-                    @error('foto')
-                    <small class="text-red-500">{{ $message }}</small>
-                    @enderror
-                    <img src="{{ $member->foto_url }}" class="border my-1" alt="">
-                </label>
-                <label class="form-control w-full max-w-xs mb-3">
-                    <div class="label">
-                        <span class="label-text">File KK</span>
-                    </div>
-                    <input type="file" name="kk"
-                           class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>
-                    @error('kk')
-                    <small class="text-red-500">{{ $message }}</small>
-                    @enderror
-                    <img src="{{ $member->member->kk_url }}" class="border my-1" alt="">
-                </label>
-                <label class="form-control w-full max-w-xs mb-3">
-                    <div class="label">
-                        <span class="label-text">File KTP</span>
-                    </div>
-                    <input type="file" name="ktp"
-                           class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>
-                    @error('ktp')
-                    <small class="text-red-500">{{ $message }}</small>
-                    @enderror
-                    <img src="{{ $member->member->ktp_url }}" class="border my-1" alt="">
-                </label>
-                <label class="form-control w-full max-w-xs mb-3">
-                    <div class="label">
-                        <span class="label-text">File Ijazah</span>
-                    </div>
-                    <input type="file" name="ijazah"
-                           class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>
-                    @error('ijazah')
-                    <small class="text-red-500">{{ $message }}</small>
-                    @enderror
-                    <img src="{{ $member->member->ijazah_url }}" class="border my-1" alt="">
-                </label>
+                <div class="grid lg:grid-cols-3 gap-2">
+                    <label class="form-control w-full max-w-xs mb-3">
+                        <div class="label">
+                            <span class="label-text">File Foto</span>
+                        </div>
+                        <input type="file" name="foto"
+                               class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>
+                        @error('foto')
+                        <small class="text-red-500">{{ $message }}</small>
+                        @enderror
+                        <img src="{{ $member->foto_url }}" class="border my-1" alt="">
+                    </label>
+                    {{--                <label class="form-control w-full max-w-xs mb-3">--}}
+                    {{--                    <div class="label">--}}
+                    {{--                        <span class="label-text">File KK</span>--}}
+                    {{--                    </div>--}}
+                    {{--                    <input type="file" name="kk"--}}
+                    {{--                           class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>--}}
+                    {{--                    @error('kk')--}}
+                    {{--                    <small class="text-red-500">{{ $message }}</small>--}}
+                    {{--                    @enderror--}}
+                    {{--                    <img src="{{ $member->member->kk_url }}" class="border my-1" alt="">--}}
+                    {{--                </label>--}}
+                    <label class="form-control w-full max-w-xs mb-3">
+                        <div class="label">
+                            <span class="label-text">File KTP</span>
+                        </div>
+                        <input type="file" name="ktp"
+                               class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>
+                        @error('ktp')
+                        <small class="text-red-500">{{ $message }}</small>
+                        @enderror
+                        @if($member->member->isImage('ktp/'.$member->member->ktp))
+                            <img src="{{ $member->member->ktp_url }}" class="border my-1" alt="">
+                        @else
+                            <a href="{{ $member->member->ktp_url }}" target="_blank"
+                               class="btn my-1">{{ $member->member->ktp_url }}</a>
+                        @endif
+                    </label>
+                    <label class="form-control w-full max-w-xs mb-3">
+                        <div class="label">
+                            <span class="label-text">File Ijazah</span>
+                        </div>
+                        <input type="file" name="ijazah"
+                               class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>
+                        @error('ijazah')
+                        <small class="text-red-500">{{ $message }}</small>
+                        @enderror
+                        @if($member->member->isImage('ijazah/'.$member->member->ijazah))
+                            <img src="{{ $member->member->ijazah_url }}" class="border my-1" alt="">
+                        @else
+                            <a href="{{ $member->member->ijazah_url }}" target="_blank"
+                               class="btn my-1">{{ $member->member->ijazah_url }}</a>
+                        @endif
+                    </label>
+                </div>
                 <div class="divider"></div>
                 <button class="btn btn-active btn-neutral" type="submit">Simpan</button>
             </form>

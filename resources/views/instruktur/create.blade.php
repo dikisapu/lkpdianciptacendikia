@@ -74,6 +74,16 @@
                     </div>
                     @enderror
                 </label>
+                <label class="form-control w-full max-w-xs mb-3">
+                    <div class="label">
+                        <span class="label-text">File Foto</span>
+                    </div>
+                    <input type="file" name="foto"
+                           class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>
+                    @error('foto')
+                    <small class="text-red-500">{{ $message }}</small>
+                    @enderror
+                </label>
                 <div class="divider"></div>
                 <button class="btn btn-active btn-neutral" type="submit">Simpan</button>
             </form>

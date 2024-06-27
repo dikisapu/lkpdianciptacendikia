@@ -6,9 +6,12 @@ use App\Enums\UserRolesEnum;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\ManagementFile;
 
 class InstrukturController extends Controller
 {
+    use ManagementFile;
+
     /**
      * Display a listing of the resource.
      */
@@ -39,10 +42,18 @@ class InstrukturController extends Controller
             'email' => ['required', 'email'],
             'no_telp' => ['required'],
             'alamat' => ['required'],
+            'foto' => ['required', 'image'],
         ]);
+        $foto = null;
+        if ($request->hasFile('foto')) {
+            $fileFoto = $request->file('foto');
+            $foto = time() . "_" . $fileFoto->getClientOriginalName();
+            $fileFoto->storeAs('public/foto', $foto);
+        }
 
         $data['password'] = Hash::make('password');
         $data['role'] = UserRolesEnum::INSTRUKTUR->value;
+        $data['foto'] = $foto;
         User::create($data);
         session()->flash('success', 'Data berhasil disimpan.');
         return redirect()->route('instruktur.index');
@@ -74,7 +85,16 @@ class InstrukturController extends Controller
             'email' => ['required', 'email'],
             'no_telp' => ['required'],
             'alamat' => ['required'],
+            'foto' => ['nullable', 'image'],
         ]);
+
+        if ($request->hasFile('foto')) {
+            $this->removeFile('foto/' . $instruktur->foto);
+            $fileFoto = $request->file('foto');
+            $foto = time() . "_" . $fileFoto->getClientOriginalName();
+            $fileFoto->storeAs('public/foto', $foto);
+            $data['foto'] = $foto;
+        }
 
         $instruktur->update($data);
         session()->flash('success', 'Data berhasil disimpan.');
@@ -86,6 +106,7 @@ class InstrukturController extends Controller
      */
     public function destroy(User $instruktur)
     {
+        $this->removeFile('foto/' . $instruktur->foto);
         $instruktur->delete();
         session()->flash('success', 'Data berhasil hapus.');
         return redirect()->route('instruktur.index');

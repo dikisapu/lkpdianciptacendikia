@@ -60,14 +60,15 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
             'alamat' => ['required'],
-            'kk' => ['required', 'image'],
-            'ktp' => ['required', 'image'],
-            'foto' => ['required', 'image'],
-            'ijazah' => ['required', 'image'],
+            'no_telp' => ['required', 'numeric'],
+//            'kk' => ['required', 'image'],
+            'ktp' => ['required'],
+            'foto' => ['required'],
+            'ijazah' => ['required'],
         ]);
         $foto = null;
         $ktp = null;
-        $kk = null;
+//        $kk = null;
         $ijazah = null;
         if ($request->hasFile('foto')) {
             $fileFoto = $request->file('foto');
@@ -89,11 +90,11 @@ class AuthController extends Controller
             $ktp = time() . "_" . $fileKTP->getClientOriginalName();
             $fileKTP->storeAs('public/ktp', $ktp);
         }
-        if ($request->hasFile('kk')) {
-            $fileKK = $request->file('kk');
-            $kk = time() . "_" . $fileKK->getClientOriginalName();
-            $fileKK->storeAs('public/kk', $kk);
-        }
+//        if ($request->hasFile('kk')) {
+//            $fileKK = $request->file('kk');
+//            $kk = time() . "_" . $fileKK->getClientOriginalName();
+//            $fileKK->storeAs('public/kk', $kk);
+//        }
         if ($request->hasFile('ijazah')) {
             $fileIjazah = $request->file('ijazah');
             $ijazah = time() . "_" . $fileIjazah->getClientOriginalName();
@@ -103,7 +104,7 @@ class AuthController extends Controller
         Member::create([
             'user_id' => $user->id,
             'ktp' => $ktp,
-            'kk' => $kk,
+//            'kk' => $kk,
             'ijazah' => $ijazah,
         ]);
         Auth::loginUsingId($user->id);

@@ -80,11 +80,11 @@
                             <td>:</td>
                             <td><kbd class="kbd kbd-sm">{{ $transaksi->range_jam }}</kbd></td>
                         </tr>
-                        <tr>
-                            <td>Catatan</td>
-                            <td>:</td>
-                            <td><kbd class="kbd kbd-sm">{{ $transaksi->catatan }}</kbd></td>
-                        </tr>
+                        {{--                        <tr>--}}
+                        {{--                            <td>Catatan</td>--}}
+                        {{--                            <td>:</td>--}}
+                        {{--                            <td><kbd class="kbd kbd-sm">{{ $transaksi->catatan }}</kbd></td>--}}
+                        {{--                        </tr>--}}
                         <tr>
                             <td>Status Transaksi</td>
                             <td>:</td>
@@ -97,7 +97,8 @@
                         </tr>
                     </table>
                     <div class="card-actions justify-end">
-                        <a href="{{ route('my-paket.cetak', $transaksi) }}" target="_blank" class="btn btn-warning btn-sm">
+                        <a href="{{ route('my-paket.cetak', $transaksi) }}" target="_blank"
+                           class="btn btn-warning btn-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                  stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -136,9 +137,14 @@
                 @else
                     <div class="card-body">
                         <h2 class="card-title">Bukti Bayar</h2>
-                        <a href="{{ $transaksi->bukti_bayar_url }}" target="_blank">
-                            <img src="{{ $transaksi->bukti_bayar_url }}" alt="" class="border rounded-box">
-                        </a>
+                        @if($transaksi->isImage('bukti_bayar/'.$transaksi->bukti_bayar))
+                            <a href="{{ $transaksi->bukti_bayar_url }}" target="_blank">
+                                <img src="{{ $transaksi->bukti_bayar_url }}" alt="" class="border rounded-box">
+                            </a>
+                        @else
+                            <a href="{{  $transaksi->bukti_bayar_url }}" target="_blank"
+                               class="btn my-1">{{  $transaksi->bukti_bayar_url }}</a>
+                        @endif
                     </div>
                 @endif
             </div>

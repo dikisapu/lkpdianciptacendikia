@@ -85,11 +85,11 @@
                             <td>:</td>
                             <td><kbd class="kbd kbd-sm">{{ $transaksi->range_jam }}</kbd></td>
                         </tr>
-                        <tr>
-                            <td>Catatan</td>
-                            <td>:</td>
-                            <td><kbd class="kbd kbd-sm">{{ $transaksi->catatan }}</kbd></td>
-                        </tr>
+{{--                        <tr>--}}
+{{--                            <td>Catatan</td>--}}
+{{--                            <td>:</td>--}}
+{{--                            <td><kbd class="kbd kbd-sm">{{ $transaksi->catatan }}</kbd></td>--}}
+{{--                        </tr>--}}
                         <tr>
                             <td>Status Transaksi</td>
                             <td>:</td>
@@ -109,9 +109,14 @@
             <div class="card bg-base-100 shadow-xl">
                 <div class="card-body">
                     <h2 class="card-title">Bukti Bayar</h2>
-                    <a href="{{ $transaksi->bukti_bayar_url }}" target="_blank">
-                        <img src="{{ $transaksi->bukti_bayar_url }}" alt="" class="border rounded-box">
-                    </a>
+                    @if($transaksi->isImage('bukti_bayar/'.$transaksi->bukti_bayar))
+                        <a href="{{ $transaksi->bukti_bayar_url }}" target="_blank">
+                            <img src="{{ $transaksi->bukti_bayar_url }}" alt="" class="border rounded-box">
+                        </a>
+                    @else
+                        <a href="{{  $transaksi->bukti_bayar_url }}" target="_blank"
+                           class="btn my-1">{{  $transaksi->bukti_bayar_url }}</a>
+                    @endif
                 </div>
                 @if($transaksi->status_transaksi->menungguKonfirmasi())
                     <form action="{{ route('transaksi.save-instruktur', $transaksi) }}" method="post"
@@ -119,6 +124,16 @@
                         @csrf
                         @method('PUT')
                         <div class="card-body">
+                            <label class="form-control w-full max-w-xs">
+                                <div class="label">
+                                    <span class="label-text">Tanggal Mulai</span>
+                                </div>
+                                <input type="date" name="tgl_mulai" required placeholder="Type here"
+                                       class="input input-bordered w-full max-w-xs"/>
+                                @error('tgl_mulai')
+                                <small class="text-error">{{ $message }}</small>
+                                @enderror
+                            </label>
                             <label class="form-control w-full max-w-xs">
                                 <div class="label">
                                     <span class="label-text">Instruktur</span>
@@ -134,7 +149,7 @@
                                 @enderror
                             </label>
                             <div class="card-actions justify-end">
-                                <button type="submit" class="btn btn-outline btn-block shadow-sm">Simpan Instruktur
+                                <button type="submit" class="btn btn-outline btn-block shadow-sm">Simpan
                                 </button>
                             </div>
                         </div>

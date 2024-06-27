@@ -12,6 +12,7 @@
                     <thead class="bg-base-500">
                     <tr>
                         <th></th>
+                        <th>Foto</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th>No. telp</th>
@@ -23,6 +24,13 @@
                     @foreach($instruktur as $key => $row)
                         <tr>
                             <th>{{ $instruktur->firstItem() + $key }}.</th>
+                            <td>
+                                <div class="avatar">
+                                    <div class="w-10 mask mask-squircle">
+                                        <img src="{{ $row->foto_url }}"/>
+                                    </div>
+                                </div>
+                            </td>
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->email }}</td>
                             <td>{{ $row->no_telp }}</td>

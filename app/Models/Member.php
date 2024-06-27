@@ -38,4 +38,14 @@ class Member extends Model
 
         return asset('image_not_available.png');
     }
+
+    public function isImage($path): bool
+    {
+        $allowedMimeTypes = ['image/jpeg', 'image/gif', 'image/png', 'image/bmp', 'image/svg+xml'];
+        $contentType = mime_content_type(Storage::disk('public')->path($path));
+        if (in_array($contentType, $allowedMimeTypes)) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -72,11 +72,11 @@
         <td>:</td>
         <td>{{ $transaksi->status_transaksi }}</td>
     </tr>
-    <tr>
-        <td>Catatan</td>
-        <td>:</td>
-        <td>{{ $transaksi->catatan }}</td>
-    </tr>
+{{--    <tr>--}}
+{{--        <td>Catatan</td>--}}
+{{--        <td>:</td>--}}
+{{--        <td>{{ $transaksi->catatan }}</td>--}}
+{{--    </tr>--}}
 </table>
 <hr style="border: 0.5px solid grey" class="mt-2 mb-2">
 <i>NB : Pembayaran bisa dilakukan melalui no. rek berikut :</i>

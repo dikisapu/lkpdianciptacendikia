@@ -21,11 +21,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::view('/', 'dashboard-admin');
     Route::resource('paket', PaketController::class);
     Route::resource('member', MemberController::class);
+    Route::get('member-cetak', [MemberController::class, 'cetak'])->name('member-cetak');
     Route::resource('transaksi', TransaksiController::class);
     Route::put('transaksi/{transaksi}/save-instruktur', [TransaksiController::class, 'saveInstruktur'])->name('transaksi.save-instruktur');
     Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
     Route::get('jadwal/{transaksi}/edit', [JadwalController::class, 'edit'])->name('jadwal.edit');
     Route::put('jadwal/{transaksi}', [JadwalController::class, 'update'])->name('jadwal.update');
+    Route::get('jadwal-cetak', [JadwalController::class, 'cetak'])->name('jadwal-cetak');
     Route::resource('instruktur', InstrukturController::class);
     Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
     Route::get('laporan/cetak', [LaporanController::class, 'cetak'])->name('laporan.cetak');

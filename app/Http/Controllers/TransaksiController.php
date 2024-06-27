@@ -79,10 +79,12 @@ class TransaksiController extends Controller
     public function saveInstruktur(Request $request, Transaksi $transaksi)
     {
         $request->validate([
-            'instruktur_id' => ['required']
+            'instruktur_id' => ['required'],
+            'tgl_mulai' => ['required']
         ]);
 
         $transaksi->update([
+            'tgl_mulai' => date('Y-m-d', strtotime($request->tgl_mulai)),
             'instruktur_id' => $request->instruktur_id,
             'status_transaksi' => StatusTransaksiEnum::SUDAH_DIBAYAR->value
         ]);

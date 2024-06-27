@@ -37,4 +37,13 @@ class JadwalController extends Controller
         session()->flash('success', 'Data berhasil disimpan.');
         return redirect()->route('jadwal.index');
     }
+
+    public function cetak()
+    {
+        $transaksi = Transaksi::query()
+            ->with('member', 'paket')
+            ->jadwal()
+            ->get();
+        return view('jadwal.cetak', compact('transaksi'));
+    }
 }

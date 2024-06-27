@@ -57,16 +57,16 @@
             <form action="{{ route('boking-paket.store', $paket) }}" method="post">
                 @csrf
                 <div class="card-body">
-                    <label class="form-control w-full max-w-xs">
-                        <div class="label">
-                            <span class="label-text">Tanggal Mulai</span>
-                        </div>
-                        <input type="date" name="tgl_mulai" required placeholder="Type here"
-                               class="input input-bordered w-full max-w-xs"/>
-                        @error('tgl_mulai')
-                        <small class="text-error">{{ $message }}</small>
-                        @enderror
-                    </label>
+{{--                    <label class="form-control w-full max-w-xs">--}}
+{{--                        <div class="label">--}}
+{{--                            <span class="label-text">Tanggal Mulai</span>--}}
+{{--                        </div>--}}
+{{--                        <input type="date" name="tgl_mulai" required placeholder="Type here"--}}
+{{--                               class="input input-bordered w-full max-w-xs"/>--}}
+{{--                        @error('tgl_mulai')--}}
+{{--                        <small class="text-error">{{ $message }}</small>--}}
+{{--                        @enderror--}}
+{{--                    </label>--}}
                     <label class="form-control w-full max-w-xs">
                         <div class="label">
                             <span class="label-text">Pilih Hari</span>
@@ -95,13 +95,13 @@
                         <small class="text-error">{{ $message }}</small>
                         @enderror
                     </label>
-                    <label class="form-control">
-                        <div class="label">
-                            <span class="label-text">Catatan</span>
-                        </div>
-                        <textarea required name="catatan" class="textarea textarea-bordered h-24"
-                                  placeholder="Catatan"></textarea>
-                    </label>
+{{--                    <label class="form-control">--}}
+{{--                        <div class="label">--}}
+{{--                            <span class="label-text">Catatan</span>--}}
+{{--                        </div>--}}
+{{--                        <textarea required name="catatan" class="textarea textarea-bordered h-24"--}}
+{{--                                  placeholder="Catatan"></textarea>--}}
+{{--                    </label>--}}
                     <div class="card-actions justify-end">
                         <button type="submit" class="btn btn-outline btn-block shadow-sm">Order
                             Now

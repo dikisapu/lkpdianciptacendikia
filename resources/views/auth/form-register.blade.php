@@ -5,9 +5,10 @@
             <h2 class="text-center text-2xl font-bold mb-4">Registrasi</h2>
             <form action="{{ route('register.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
+                <div class="">
                 <div class="flex flex-row mt-10 mb-5 flex-wrap">
-                    <div class="basis-1/2 px-2">
-                        <div class="divider">Auth</div>
+                    <div class="basis-1/2 px-2 ">
+                        <div class="divider">Masukan Username dan passwrord</div>
                         <label class="form-control w-full max-w-xs mb-3">
                             <label class="input input-bordered flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
@@ -38,7 +39,7 @@
                             <small class="text-red-500">{{ $message }}</small>
                             @enderror
                         </label>
-                        <div class="divider">Data Personal</div>
+                        <div class="divider">Masukan data mu</div>
                         <label class="form-control w-full max-w-xs mb-3">
                             <input type="text" placeholder="Nama" name="name"
                                    class="input input-bordered w-full max-w-xs"/>
@@ -47,8 +48,8 @@
                             @enderror
                         </label>
                         <label class="form-control w-full max-w-xs mb-3">
-                            <input type="text" placeholder="No. Telp" name="no_telp"
-                                   class="input input-bordered w-full max-w-xs"/>
+                            <input type="number" placeholder="Masukan Nomor telepon anda" name="no_telp"
+                                   class="input input-bordered w-full max-w-xs" oninput="limitInputLength(this, 13)"/>
                             @error('no_telp')
                             <small class="text-red-500">{{ $message }}</small>
                             @enderror
@@ -73,16 +74,16 @@
                             <small class="text-red-500">{{ $message }}</small>
                             @enderror
                         </label>
-                        <label class="form-control w-full max-w-xs mb-3">
-                            <div class="label">
-                                <span class="label-text">File KK</span>
-                            </div>
-                            <input type="file" name="kk"
-                                   class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>
-                            @error('kk')
-                            <small class="text-red-500">{{ $message }}</small>
-                            @enderror
-                        </label>
+{{--                        <label class="form-control w-full max-w-xs mb-3">--}}
+{{--                            <div class="label">--}}
+{{--                                <span class="label-text">File KK</span>--}}
+{{--                            </div>--}}
+{{--                            <input type="file" name="kk"--}}
+{{--                                   class="file-input file-input-sm  file-input-bordered w-full max-w-xs"/>--}}
+{{--                            @error('kk')--}}
+{{--                            <small class="text-red-500">{{ $message }}</small>--}}
+{{--                            @enderror--}}
+{{--                        </label>--}}
                         <label class="form-control w-full max-w-xs mb-3">
                             <div class="label">
                                 <span class="label-text">File KTP</span>
@@ -106,6 +107,7 @@
 
                     </div>
                 </div>
+            </div>
 
                 <div class="flex items-center justify-between">
                     <button type="submit" class="btn btn-neutral">Simpan</button>
@@ -117,4 +119,15 @@
             </form>
         </div>
     </div>
+    <script>
+        function limitInputLength(element, maxLength) {
+            const warningMessage = document.getElementById('warning-message');
+            if (element.value.length > maxLength) {
+                element.value = element.value.slice(0, maxLength);
+                warningMessage.style.display = 'block';
+            } else {
+                warningMessage.style.display = 'none';
+            }
+        }
+    </script>
 @endsection

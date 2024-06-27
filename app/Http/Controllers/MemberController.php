@@ -64,10 +64,10 @@ class MemberController extends Controller
         $request->validate([
             'name' => ['required'],
             'alamat' => ['required'],
-            'kk' => ['nullable', 'image'],
-            'ktp' => ['nullable', 'image'],
-            'foto' => ['nullable', 'image'],
-            'ijazah' => ['nullable', 'image'],
+//            'kk' => ['nullable', 'image'],
+            'ktp' => ['nullable'],
+            'foto' => ['nullable'],
+            'ijazah' => ['nullable'],
         ]);
 
         if ($request->hasFile('foto')) {
@@ -89,13 +89,13 @@ class MemberController extends Controller
             $fileKTP->storeAs('public/ktp', $ktp);
             $member->member->ktp = $ktp;
         }
-        if ($request->hasFile('kk')) {
-            $this->removeFile('kk/' . $member?->member?->kk);
-            $fileKK = $request->file('kk');
-            $kk = time() . "_" . $fileKK->getClientOriginalName();
-            $fileKK->storeAs('public/kk', $kk);
-            $member->member->kk = $kk;
-        }
+//        if ($request->hasFile('kk')) {
+//            $this->removeFile('kk/' . $member?->member?->kk);
+//            $fileKK = $request->file('kk');
+//            $kk = time() . "_" . $fileKK->getClientOriginalName();
+//            $fileKK->storeAs('public/kk', $kk);
+//            $member->member->kk = $kk;
+//        }
         if ($request->hasFile('ijazah')) {
             $this->removeFile('ijazah/' . $member?->member?->ijazah);
             $fileIjazah = $request->file('ijazah');
@@ -115,5 +115,13 @@ class MemberController extends Controller
     public function destroy(Member $member)
     {
         //
+    }
+
+    public function cetak()
+    {
+        $member = User::query()
+            ->has('member')
+            ->get();
+        return view('member.cetak', compact('member'));
     }
 }
