@@ -53,7 +53,7 @@
                             </svg>
 
                             <input name="no_telp" value="{{ old('no_telp') }}" type="number" placeholder="No. Telp"
-                                   class="w-full"/>
+                                   class="w-full" oninput="limitInputLength(this, 13)" />
                         </label>
                         @error('no_telp')
                         <div class="label">

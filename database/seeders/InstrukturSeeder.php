@@ -17,13 +17,13 @@ class InstrukturSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'Instruktur 1',
+                'name' => 'Edialpiono',
                 'email' => 'instruktur@gmail.com',
                 'password' => Hash::make('masuk123'),
                 'role' => UserRolesEnum::INSTRUKTUR->value
             ],
             [
-                'name' => 'Instruktur 2',
+                'name' => 'Dewieryanti',
                 'email' => 'instruktur2@gmail.com',
                 'password' => Hash::make('masuk123'),
                 'role' => UserRolesEnum::INSTRUKTUR->value

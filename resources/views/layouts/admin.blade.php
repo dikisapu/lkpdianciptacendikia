@@ -134,7 +134,15 @@
         form.setAttribute('action', url)
         modal_confirm.showModal()
     }
-
+    function limitInputLength(element, maxLength) {
+            const warningMessage = document.getElementById('warning-message');
+            if (element.value.length > maxLength) {
+                element.value = element.value.slice(0, maxLength);
+                warningMessage.style.display = 'block';
+            } else {
+                warningMessage.style.display = 'none';
+            }
+        }
 </script>
 @yield('script')
 
