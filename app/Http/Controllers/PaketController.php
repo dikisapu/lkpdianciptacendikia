@@ -17,7 +17,7 @@ class PaketController extends Controller
     {
         $pakets = Paket::query()
             ->orderByDesc('created_at')
-            ->paginate(10);
+            ->paginate(3);
         return view('paket.index', compact('pakets'));
     }
 
