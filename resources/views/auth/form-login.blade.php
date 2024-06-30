@@ -1,6 +1,6 @@
 @extends('auth.auth')
 @section('content')
-<div class="lg:w-1/3 w-2/4 card"> <!-- Lebar 40% halaman -->
+<div class="lg:w-1/3 w-4/5 card"> <!-- Lebar 40% halaman -->
     <div class="bg-white shadow-lg rounded-lg p-6"> <!-- Border radius dan padding -->
         <h2 class="text-center text-2xl font-bold mb-4">LogIn Kuy</h2>
         <form action="{{ route('login') }}" method="post">
@@ -29,7 +29,7 @@
                 @enderror
             </div>
             <div class="flex items-center justify-between">
-                <button type="submit" class="btn btn-neutral">Login</button>
+                <button type="submit" class="btn btn-neutral gap-4">Login</button>
                 <button type="button" class="btn btn-warning">
                     <a href="/" class="w-full h-full text-center flex items-center justify-center">ke beranda</a>
                 </button>

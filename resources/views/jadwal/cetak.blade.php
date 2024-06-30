@@ -4,6 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <style>
+         @media print {
+            body {
+                font-size: 12px; /* Sesuaikan ukuran font jika perlu */
+            }
+            .overflow-x-auto {
+                overflow: visible !important;
+            }
+            .table {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 <table style="width: 100%">
@@ -27,8 +40,8 @@
         <thead class="bg-base-500">
         <tr>
             <th></th>
-            <th>Kode Booking</th>
-            <th>Paket</th>
+            {{-- <th>Kode Booking</th> --}}
+            <th>kursus</th>
             <th>Instruktur</th>
             <th>Member</th>
             <th>Hari</th>
@@ -41,7 +54,7 @@
         @foreach($transaksi as $key => $row)
             <tr>
                 <th>{{ $key + 1 }}.</th>
-                <td>{{ $row->kode }}</td>
+                {{-- <td>{{ $row->kode }}</td> --}}
                 <td>{{ $row->paket?->nama }}</td>
                 <td>{{ $row->instruktur?->name }}</td>
                 <td>{{ $row->member?->name }}</td>

@@ -2,7 +2,7 @@
 @section('content')
     <div class="flex flex-row mb-3 justify-between">
         <h2 class="card-title">Daftar Instruktur</h2>
-        <a href="{{ route('instruktur.create') }}" class="btn btn-sm">Buat</a>
+        <a href="{{ route('instruktur.create') }}" class="btn btn-sm">+ Tambah Instruktur</a>
     </div>
     <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
@@ -59,7 +59,9 @@
                     </tbody>
                 </table>
             </div>
-            {!! $instruktur->links() !!}
+            <div class="mt-4">
+                {{ $instruktur->links('pagination::tailwind') }}
+            </div>
         </div>
     </div>
 @endsection

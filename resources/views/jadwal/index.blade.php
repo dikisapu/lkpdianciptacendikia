@@ -20,7 +20,7 @@
                     <tr>
                         <th></th>
                         <th>Kode Booking</th>
-                        <th>Paket</th>
+                        <th>Kursus</th>
                         <th>Instruktur</th>
                         <th>Member</th>
                         <th>Hari</th>

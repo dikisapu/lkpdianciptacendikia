@@ -21,7 +21,7 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::query()
             ->with('member', 'paket')
             ->where('status_transaksi', $status)
-            ->paginate(10);
+            ->paginate(5);
         return view('transaksi.index', compact('transaksi', 'status'));
     }
 

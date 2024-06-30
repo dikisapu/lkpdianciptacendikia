@@ -13,7 +13,7 @@ class JadwalController extends Controller
         $transaksi = Transaksi::query()
             ->with('member', 'paket')
             ->jadwal()
-            ->paginate(10);
+            ->paginate(3);
         return view('jadwal.index', compact('transaksi'));
     }
 

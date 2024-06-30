@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <style>
+        .cursor-pointer {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class=" bg-gray-100 bg-gradient-to-t to-gray-200">
 

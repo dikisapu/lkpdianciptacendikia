@@ -429,7 +429,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','admin@admin.com',NULL,'$2y$12$q/Wb8aWKXOh.wkCYZFz1nuyBintMyZ0IjCD0AxAUYbnnndglpAliq','Admin',NULL,NULL,NULL,NULL,'2024-06-02 22:32:04','2024-06-02 22:32:04'),(5,'Muhammad Hunan','member@member.com',NULL,'$2y$12$vsR39IMmlsdKsmNXCT4Aauc/HvzwDlNZAuC8HFdw/3jtJPwGx0jga','Member','083129787243','Mataram',NULL,NULL,'2024-06-06 18:25:16','2024-06-08 17:16:30'),(6,'Instruktur 1','instruktur@gmail.com',NULL,'$2y$12$eLv7cCAll97Z6bYMc7ynt.qKSJNQB3zuzeMiD5c8ymEnqOp1tYUpW','Instruktur','0842545656','Bagua',NULL,NULL,NULL,'2024-06-07 18:28:47'),(7,'Instruktur 2','instruktur2@gmail.com',NULL,'$2y$12$IQOyLUkRuxvmmyOQEQ6r/O5M731fpfJ97tD9TVsW7gM5EZkcRx9tO','Instruktur',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Admin','admin@admin.com',NULL,'$2y$12$q/Wb8aWKXOh.wkCYZFz1nuyBintMyZ0IjCD0AxAUYbnnndglpAliq','Admin',NULL,NULL,NULL,NULL,'2024-06-02 22:32:04','2024-06-02 22:32:04'),(5,'Diki Santoso','member@member.com',NULL,'$2y$12$vsR39IMmlsdKsmNXCT4Aauc/HvzwDlNZAuC8HFdw/3jtJPwGx0jga','Member','083129787243','Mataram',NULL,NULL,'2024-06-06 18:25:16','2024-06-08 17:16:30'),(6,'Instruktur 1','instruktur@gmail.com',NULL,'$2y$12$eLv7cCAll97Z6bYMc7ynt.qKSJNQB3zuzeMiD5c8ymEnqOp1tYUpW','Instruktur','0842545656','Bagua',NULL,NULL,NULL,'2024-06-07 18:28:47'),(7,'Instruktur 2','instruktur2@gmail.com',NULL,'$2y$12$IQOyLUkRuxvmmyOQEQ6r/O5M731fpfJ97tD9TVsW7gM5EZkcRx9tO','Instruktur',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

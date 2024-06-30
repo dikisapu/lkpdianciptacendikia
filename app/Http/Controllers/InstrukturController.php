@@ -19,11 +19,11 @@ class InstrukturController extends Controller
     {
         $instruktur = User::query()
             ->instruktur()
-            ->orderByDesc('created_at')
-            ->paginate(10);
+            ->orderByDesc('created_at') 
+            ->paginate(3);
         return view('instruktur.index', compact('instruktur'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
