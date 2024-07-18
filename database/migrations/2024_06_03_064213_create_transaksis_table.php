@@ -23,6 +23,7 @@ return new class extends Migration {
             $table->text('catatan')->nullable();
             $table->date('tgl_bayar')->nullable();
             $table->string('bukti_bayar')->nullable();
+            $table->string('kelas')->nullable();
             $table->timestamps();
         });
     }

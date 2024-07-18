@@ -63,7 +63,7 @@
                         <tr>
                             <td>Tgl. Mulai</td>
                             <td>:</td>
-                            <td><kbd class="kbd kbd-sm">{{ $transaksi->tgl_mulai_format }}</kbd></td>
+                            <td><kbd class="kbd kbd-sm">{{ $transaksi->tgl_mulai_format ?? 'belum Terjadwal' }}</kbd></td>
                         </tr>
                         <tr>
                             <td>Tgl. Transaksi</td>
@@ -91,10 +91,16 @@
                             <td><kbd class="kbd kbd-sm">{{ $transaksi->status_transaksi }}</kbd></td>
                         </tr>
                         <tr>
+                            <td>Kelas Kursus</td>
+                            <td>:</td>
+                            <td><kbd class="kbd kbd-sm">{{ $transaksi->paket->kelas}}</kbd></td>
+                        </tr>
+                        <tr>
                             <td>Instruktur</td>
                             <td>:</td>
                             <td><kbd class="kbd kbd-sm">{{ $transaksi->instruktur?->name ?? '-' }}</kbd></td>
                         </tr>
+                        
                     </table>
                     <div class="card-actions justify-end">
                         <a href="{{ route('my-paket.cetak', $transaksi) }}" target="_blank"

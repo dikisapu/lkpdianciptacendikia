@@ -14,10 +14,11 @@
                             <div class="badge badge-outline">{{ $row->jns_mobil }}</div>
                             <div class="badge badge-outline">{{ $row->jumlah_pertemuan }}x Pertemuan</div>
                             <div class="badge badge-outline">{{ $row->jumlah_jam }} Jam/Pertemuan</div>
+                            <div class="badge badge-outline">{{ $row->kelas }} </div>
                         </div>
                         <div class="card-action flex flex-row justify-between items-center mt-2">
                             <span class="font-bold">Rp. {{ $row->harga_rp }}</span>
-                            <a href="{{ route('detail-paket', $row) }}" class="btn btn-warning shadow-sm">Order</a>
+                            <a href="{{ route('detail-paket', $row) }}" class="btn btn-warning shadow-sm">Beli Sekarang !</a>
                         </div>
                     </div>
                 </div>

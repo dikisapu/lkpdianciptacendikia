@@ -30,6 +30,7 @@ class JadwalController extends Controller
         $data = $request->validate([
             'hari' => ['required'],
             'range_jam' => ['required'],
+            'kelas' => ['required'],
             'instruktur_id' => ['required'],
         ]);
 

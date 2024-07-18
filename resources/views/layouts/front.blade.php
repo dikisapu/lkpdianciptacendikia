@@ -17,7 +17,7 @@
 <body class=" bg-gray-100 bg-gradient-to-t to-gray-200">
 
     <div
-        class="circlePosition w-[590px] h-[400px] bg-[#feb71f] rounded-[100%] absolute -z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[300px]">
+        class="circlePosition w-[590px] h-[400px] bg-[#fe1f8b] rounded-[100%] absolute -z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[300px]">
     </div>
 
     <div class="mx-2 lg:mx-20 min-h-screen">
@@ -69,9 +69,17 @@
                                         Menu admin
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('my-profile') }}" class="justify-between">
+                                        Profile
+                                    </a>
+                                </li>
                             @endif
+                            {{-- @if (auth()->user()->role->isMember())
+                                <li><a href="{{ route('my-paket') }}"> Kursus Saya</a></li>
+                            @endif --}}
                             @if (auth()->user()->role->isMember())
-                                <li><a href="{{ route('my-paket') }}">Paket Saya</a></li>
+                                <li><a href="{{ route('my-paket') }}"> Daftar Riwayat Pembelian</a></li>
                             @endif
                             <li><a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -108,14 +116,13 @@
         </div>
     @endif
     <script>
-        
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const images = [
                 "{{ asset('gedung.jpg') }}",
                 "{{ asset('image2.jpg') }}", // Pastikan mengganti 'image1.jpg' dengan nama file yang benar
                 "{{ asset('image3.jpg') }}", // Pastikan mengganti 'image1.jpg' dengan nama file yang benar
                 "{{ asset('image4.jpg') }}", // Pastikan mengganti 'image1.jpg' dengan nama file yang benar
-                "{{ asset('image5.jpg') }}"  // Pastikan mengganti 'image2.jpg' dengan nama file yang benar
+                "{{ asset('image5.jpg') }}" // Pastikan mengganti 'image2.jpg' dengan nama file yang benar
             ];
             let currentIndex = 0;
 

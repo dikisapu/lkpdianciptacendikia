@@ -36,11 +36,13 @@ class PaketController extends Controller
     {
         $request->validate([
             'nama' => ['required'],
+            'kelas' => ['required'],
             'jumlah_pertemuan' => ['required', 'numeric'],
             'jumlah_jam' => ['required', 'numeric'],
             'harga' => ['required', 'numeric'],
             'jenis' => ['required'],
             'foto' => ['nullable', 'image'],
+            
         ]);
 
         $file_name = null;
@@ -53,6 +55,7 @@ class PaketController extends Controller
             'nama' => $request->nama,
             'jumlah_pertemuan' => $request->jumlah_pertemuan,
             'jumlah_jam' => $request->jumlah_jam,
+            'kelas' => $request->kelas,
             'jns_mobil' => $request->jenis,
             'harga' => $request->harga,
             'foto' => $file_name,
@@ -86,6 +89,7 @@ class PaketController extends Controller
     {
         $request->validate([
             'nama' => ['required'],
+            'kelas' => ['required'],
             'jumlah_pertemuan' => ['required', 'numeric'],
             'jumlah_jam' => ['required', 'numeric'],
             'harga' => ['required', 'numeric'],
@@ -102,6 +106,7 @@ class PaketController extends Controller
         }
 
         $paket->nama = $request->nama;
+        $paket->kelas = $request->kelas;
         $paket->jumlah_pertemuan = $request->jumlah_pertemuan;
         $paket->jumlah_jam = $request->jumlah_jam;
         $paket->jns_mobil = $request->jenis;

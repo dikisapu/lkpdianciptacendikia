@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('nama')->nullable();
             $table->string('jns_mobil')->nullable();
             $table->double('harga')->nullable();
+            $table->string('kelas')->nullable();
             $table->integer('jumlah_pertemuan')->nullable();
             $table->integer('jumlah_jam')->nullable();
             $table->text('keterangan')->nullable();

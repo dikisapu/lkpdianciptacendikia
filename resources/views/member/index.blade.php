@@ -19,6 +19,10 @@
                     <tr>
                         <th></th>
                         <th>Nama</th>
+                        <th>kursus</th>
+                        <th>Kategori</th>
+                        <th>jadwal</th>
+                        <th>jam</th>
                         <th>Email</th>
                         <th>No. telp</th>
                         <th>Alamat</th>
@@ -30,6 +34,10 @@
                         <tr>
                             <th>{{ $member->firstItem() + $key }}.</th>
                             <td>{{ $row->name }}</td>
+                            <td>{{ $row->paket?->nama ?? 'Tidak ada'}}</td>
+                            <td>{{ $row->paket?->jns_mbl ?? 'Tidak ada'}}</td>
+                            <td>{{ $row->transaksi?->jadwal ?? 'Tidak ada'}}</td>
+                            <td>{{ $row->transaksi?->jam ?? 'Tidak ada'}}</td>
                             <td>{{ $row->email }}</td>
                             <td>{{ $row->no_telp }}</td>
                             <td>{{ $row->alamat }}</td>

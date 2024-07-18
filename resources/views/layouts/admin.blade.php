@@ -103,7 +103,7 @@
             </svg>
             Confirm
         </h3>
-        <p class="py-4">Apakah anda yakin mneghapus data ini?</p>
+        <p class="py-4">Apakah anda yakin menghapus data ini?</p>
         <div class="modal-action">
             <button onclick="event.preventDefault();
                                                      document.getElementById('form_delete').submit();"

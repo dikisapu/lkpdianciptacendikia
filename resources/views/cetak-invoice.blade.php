@@ -63,6 +63,11 @@
         <td>{{ $transaksi->range_jam }}</td>
     </tr>
     <tr>
+        <td>kelas</td>
+        <td>:</td>
+        <td>{{ $transaksi->kelas }}</td>
+    </tr>
+    <tr>
         <td>Biaya</td>
         <td>:</td>
         <td>Rp. {{ $transaksi->paket?->harga_rp }}</td>

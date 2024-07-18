@@ -33,11 +33,13 @@
                     <tr>
                         <th></th>
                         <th>Kode Booking</th>
-                        <th>Paket</th>
+                        <th>Kursus</th>
                         <th>Tgl. Trx</th>
                         <th>Member</th>
                         <th>Hari</th>
                         <th>Jam</th>
+                        <th>kelas</th>
+                        {{-- <th>pertemuan</th> --}}
                         <th>Biaya</th>
                         <th>Status</th>
                         <th></th>
@@ -53,7 +55,8 @@
                             <td>{{ $row->member?->name }}</td>
                             <td>{{ $row->hari }}</td>
                             <td>{{ $row->range_jam }}</td>
-                            {{--                            <td><kbd class="kbd kbd-sm">{{ $row->jumlah_pertemuan }} Pertemuan</kbd></td>--}}
+                            <td>{{ $row->paket?->kelas }}</td>
+                            {{-- <td><kbd class="kbd kbd-sm">{{ $row->jumlah_pertemuan }}{{ $row->jumlah_pertemuan }}</kbd></td> --}}
                             <td>Rp. {{ $row->paket?->harga_rp }}</td>
                             <td><kbd class="kbd kbd-sm">{{ $row->status_transaksi }}</kbd></td>
                             <td>

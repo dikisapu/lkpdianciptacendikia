@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('paket_id')->nullable()->constrained('pakets')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('kk')->nullable();
             $table->string('ktp')->nullable();

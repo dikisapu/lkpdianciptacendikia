@@ -53,7 +53,7 @@
             </div>
             <div class="card w-full bg-base-100 shadow-xl mt-2">
                 <div class="card-body">
-                    <h2 class="card-title">Detail Booking</h2>
+                    <h2 class="card-title">Detail Kursus</h2>
                     <table class="w-1/2">
                         <tr>
                             <td>Kode Booking</td>
@@ -84,6 +84,11 @@
                             <td>Jam</td>
                             <td>:</td>
                             <td><kbd class="kbd kbd-sm">{{ $transaksi->range_jam }}</kbd></td>
+                        </tr>
+                        <tr>
+                            <td>Kelas</td>
+                            <td>:</td>
+                            <td><kbd class="kbd kbd-sm">{{ $transaksi->paket?->kelas }}</kbd></td>
                         </tr>
 {{--                        <tr>--}}
 {{--                            <td>Catatan</td>--}}

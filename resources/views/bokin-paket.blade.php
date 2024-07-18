@@ -8,6 +8,7 @@
                 <div class="card-body">
                     <h2 class="card-title">{{ $paket->nama }}</h2>
                     <p>{{ $paket->keterangan }}</p>
+                    <h3 class="text-2xl  kbd kbd-sm">{{ $paket->kelas }}</h3>
                     <div class="stats lg:stats-horizontal stats-vertical shadow">
                         <div class="stat justify-items-center">
                             <div class="top-figure text-primary">

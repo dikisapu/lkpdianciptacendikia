@@ -46,6 +46,7 @@
             <th>Member</th>
             <th>Hari</th>
             <th>Jam</th>
+            <th>kelas</th>
             <th>Biaya</th>
             <th>Tgl. Mulai</th>
         </tr>
@@ -60,6 +61,7 @@
                 <td>{{ $row->member?->name }}</td>
                 <td>{{ $row->hari }}</td>
                 <td>{{ $row->range_jam }}</td>
+                <td>{{ $row->paket?->kelas }}</td>
                 <td>Rp. {{ $row->paket?->harga_rp }}</td>
                 <td><kbd class="kbd kbd-sm">{{ $row->tgl_mulai_format }}</kbd></td>
             </tr>

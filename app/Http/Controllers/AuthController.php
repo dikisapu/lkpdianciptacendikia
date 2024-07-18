@@ -29,7 +29,6 @@ class AuthController extends Controller
                 return redirect()->intended('/admin');
             }
             return redirect()->intended('/');
-
         }
 
         return back()->withErrors([
@@ -61,20 +60,21 @@ class AuthController extends Controller
             'password' => ['required'],
             'alamat' => ['required'],
             'no_telp' => ['required', 'numeric'],
-//            'kk' => ['required', 'image'],
-            'ktp' => ['required'],
-            'foto' => ['required'],
-            'ijazah' => ['required'],
+            'ktp' => ['nullable'],
+            'foto' => ['nullable'],
+            'ijazah' => ['nullable'], // Ubah validasi ijazah menjadi nullable
         ]);
+
         $foto = null;
         $ktp = null;
-//        $kk = null;
         $ijazah = null;
+
         if ($request->hasFile('foto')) {
             $fileFoto = $request->file('foto');
             $foto = time() . "_" . $fileFoto->getClientOriginalName();
             $fileFoto->storeAs('public/foto', $foto);
         }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -90,11 +90,7 @@ class AuthController extends Controller
             $ktp = time() . "_" . $fileKTP->getClientOriginalName();
             $fileKTP->storeAs('public/ktp', $ktp);
         }
-//        if ($request->hasFile('kk')) {
-//            $fileKK = $request->file('kk');
-//            $kk = time() . "_" . $fileKK->getClientOriginalName();
-//            $fileKK->storeAs('public/kk', $kk);
-//        }
+
         if ($request->hasFile('ijazah')) {
             $fileIjazah = $request->file('ijazah');
             $ijazah = time() . "_" . $fileIjazah->getClientOriginalName();
@@ -104,9 +100,9 @@ class AuthController extends Controller
         Member::create([
             'user_id' => $user->id,
             'ktp' => $ktp,
-//            'kk' => $kk,
             'ijazah' => $ijazah,
         ]);
+
         Auth::loginUsingId($user->id);
         return redirect()->intended('/');
     }

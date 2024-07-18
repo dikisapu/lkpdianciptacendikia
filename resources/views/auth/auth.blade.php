@@ -10,7 +10,7 @@
 <body class=" flex items-center justify-center min-h-screen ">
     {{-- <body class="bg-[#fcfcfc]"> --}}
     <div
-        class="circlePosition w-[590px] h-[400px] bg-[#ddea51] rounded-[100%] absolute -z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[200px]">
+        class="circlePosition w-[590px] h-[400px] bg-[#eadd51] rounded-[100%] absolute -z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[200px]">
     </div>
     @yield('content')
     @if (session()->has('success'))

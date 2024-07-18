@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Storage;
 
 class Paket extends Model
@@ -24,5 +25,10 @@ class Paket extends Model
         }
 
         return asset('image_not_available.png');
+    }
+
+    public function member():HasMany
+    {
+        return $this->hasMany(Member::class);
     }
 }

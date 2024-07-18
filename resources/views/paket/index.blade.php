@@ -13,9 +13,10 @@
                     <tr>
                         <th></th>
                         <th>Nama</th>
-                        <th>Jenis</th>
+                        <th>Kategori</th>
                         <th>Jumlah (Pertemuan)</th>
                         <th>Jam/Pertemuan</th>
+                        <th>kelas</th>
                         <th>Harga</th>
                         <th></th>
                     </tr>
@@ -28,6 +29,7 @@
                             <td>{{ $row->jns_mobil }}</td>
                             <td><kbd class="kbd kbd-sm">{{ $row->jumlah_pertemuan }} Pertemuan</kbd></td>
                             <td><kbd class="kbd kbd-sm">{{ $row->jumlah_jam }}</kbd></td>
+                            <td><kbd class="kbd kbd-sm">{{ $row->kelas}}</kbd></td>
                             <td>Rp. {{ $row->harga_rp }}</td>
                             <td>
                                 <a href="{{ route('paket.edit', $row) }}" class="btn btn-square btn-sm">

@@ -21,6 +21,21 @@
                     </div>
                     @enderror
                 </label>
+                <label class="form-control w-full max-w-lg mb-3">
+                    <div class="label">
+                        <span class="label-text">Kelas</span>
+                    </div>
+                    <select name="kelas" class="input input-bordered w-full">
+                        <option value="{{ $paket->kelas }}">{{ $paket->kelas }}</option>
+                        <option value="Private Kelas" {{ old('kelas') == 'Private Kelas' ? 'selected' : '' }}>Private Kelas</option>
+                        <option value="Kelompok Kelas" {{ old('kelas') == 'Kelompok Kelas' ? 'selected' : '' }}>Kelompok Kelas</option>
+                    </select>
+                    @error('kelas')
+                    <div class="label">
+                        <span class="label-text-alt text-red-500">{{ $message }}</span>
+                    </div>
+                    @enderror
+                </label>
                 <div class="flex flex-row gap-4 max-w-lg">
                     <label class="form-control w-full max-w-lg mb-3">
                         <div class="label">

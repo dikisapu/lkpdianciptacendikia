@@ -49,9 +49,10 @@ class HomeController extends Controller
             'user_id' => auth()->user()->id,
             'status_transaksi' => StatusTransaksiEnum::MENUNGGU_PEMBAYARAN->value,
             'range_jam' => $request->range_jam,
+            'kelas' => $request->kelas,
             'hari' => $request->hari,
             'tgl_transaksi' => date('Y-m-d'),
-            'tgl_mulai' => date('Y-m-d', strtotime($request->tgl_mulai)),
+            'tgl_mulai' => null,
             'catatan' => $request->catatan,
         ]);
 
@@ -100,54 +101,62 @@ class HomeController extends Controller
     }
 
     public function updateProfile(Request $request, User $member)
-    {
-        $request->validate([
-            'name' => ['required'],
-            'alamat' => ['required'],
-            'kk' => ['nullable', 'image'],
-            'ktp' => ['nullable', 'image'],
-            'foto' => ['nullable', 'image'],
-            'ijazah' => ['nullable', 'image'],
-        ]);
+{
+    $request->validate([
+        'name' => ['required'],
+        'alamat' => ['required'],
+        'kk' => ['nullable', 'image'],
+        'ktp' => ['nullable', 'image'],
+        'foto' => ['nullable', 'image'],
+        'ijazah' => ['nullable', 'image'],
+    ]);
 
-        if ($request->hasFile('foto')) {
-            $this->removeFile('foto/' . $member->foto);
-            $fileFoto = $request->file('foto');
-            $foto = time() . "_" . $fileFoto->getClientOriginalName();
-            $fileFoto->storeAs('public/foto', $foto);
-            $member->foto = $foto;
-        }
-        $member->name = $request->name;
-        $member->no_telp = $request->no_telp;
-        $member->alamat = $request->alamat;
-        $member->save();
+    if ($request->hasFile('foto')) {
+        $this->removeFile('foto/' . $member->foto);
+        $fileFoto = $request->file('foto');
+        $foto = time() . "_" . $fileFoto->getClientOriginalName();
+        $fileFoto->storeAs('public/foto', $foto);
+        $member->foto = $foto;
+    }
+    $member->name = $request->name;
+    $member->no_telp = $request->no_telp;
+    $member->alamat = $request->alamat;
+    $member->save();
 
+    // Pastikan objek relasi ada sebelum memodifikasinya
+    if ($member->member) {
         if ($request->hasFile('ktp')) {
-            $this->removeFile('ktp/' . $member?->member?->ktp);
+            $this->removeFile('ktp/' . optional($member->member)->ktp);
             $fileKTP = $request->file('ktp');
             $ktp = time() . "_" . $fileKTP->getClientOriginalName();
             $fileKTP->storeAs('public/ktp', $ktp);
             $member->member->ktp = $ktp;
         }
         if ($request->hasFile('kk')) {
-            $this->removeFile('kk/' . $member?->member?->kk);
+            $this->removeFile('kk/' . optional($member->member)->kk);
             $fileKK = $request->file('kk');
             $kk = time() . "_" . $fileKK->getClientOriginalName();
             $fileKK->storeAs('public/kk', $kk);
             $member->member->kk = $kk;
         }
         if ($request->hasFile('ijazah')) {
-            $this->removeFile('ijazah/' . $member?->member?->ijazah);
+            $this->removeFile('ijazah/' . optional($member->member)->ijazah);
             $fileIjazah = $request->file('ijazah');
             $ijazah = time() . "_" . $fileIjazah->getClientOriginalName();
             $fileIjazah->storeAs('public/ijazah', $ijazah);
             $member->member->ijazah = $ijazah;
         }
         $member->member->save();
-
-        session()->flash('success', 'Data berhasil disimpan.');
+    } else {
+        // Tangani kasus di mana relasi member tidak ada (opsional)
+        session()->flash('error', 'Member tidak ditemukan.');
         return redirect()->route('my-profile');
     }
+
+    session()->flash('success', 'Data berhasil disimpan.');
+    return redirect()->route('my-profile');
+}
+
 
     public function reset(Request $request)
     {

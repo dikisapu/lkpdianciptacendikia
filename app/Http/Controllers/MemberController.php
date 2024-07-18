@@ -20,7 +20,7 @@ class MemberController extends Controller
     {
         $member = User::query()
             ->has('member')
-            ->paginate(10);
+            ->paginate(3);
         return view('member.index', compact('member'));
     }
 
